@@ -1,8 +1,11 @@
-const numberOfCategories = document.querySelectorAll('li.item');
-console.log(`В списке:`, numberOfCategories.length, `категории.`);
-const categoryName = document.querySelectorAll('ul#categories li.item h2');
-for(let i = 0; i < categoryName.length; i += 1){
-    console.log(`Категория:`,categoryName[i].textContent);
-const countListOfCategories = document.querySelectorAll("ul#categories ul");
-      console.log(`Кличество элементов:`,countListOfCategories[i].children.length);
- };
+const items = document.querySelectorAll('li.item');
+Array.prototype.forEach.call(items, (el)=> {
+    const title = element.querySelector('h2').innerHTML;
+    const itemsLength = element.querySelectorAll('li').length;
+    console.log(`Категория: ${title} / Количество элементов: ${itemsLength}`);
+});
+categories.querySelectorAll('.item').forEach(item => {
+    console.log(`Категория: ${item.querySelector('h2').textContent}`);
+    console.log(`Количество элементов: ${item.querySelector('ul').children.length}`,
+    );
+  });

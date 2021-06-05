@@ -15,11 +15,14 @@ const images = [
         alt: 'Group of Horses Running',
     },
 ];
+
 const galleryRef = document.querySelector('ul#gallery');
-images.forEach(image => {
+let stringForHtml;
+let imgArray = images.forEach(image => {
     galleryRef.insertAdjacentHTML('beforeend', `<li class="list-style"><img src="${image.url}" alt="${image.alt}"></img></li>`)
-    return;
+    return stringForHtml ;
 });
+galleryRef.insertAdjacentHTML('beforeend', stringForHtml);
 //добавляем стили
 
 document.body.style.cssText = `
@@ -31,3 +34,4 @@ for (var i = 0; i < elems.length; i++) {
     elems[i].style.height = '300px';
 
 };
+
