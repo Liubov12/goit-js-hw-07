@@ -16,22 +16,12 @@ const images = [
     },
 ];
 
-const galleryRef = document.querySelector('ul#gallery');
-let stringForHtml;
-let imgArray = images.forEach(image => {
-    galleryRef.insertAdjacentHTML('beforeend', `<li class="list-style"><img src="${image.url}" alt="${image.alt}"></img></li>`)
-    return stringForHtml ;
-});
-galleryRef.insertAdjacentHTML('beforeend', stringForHtml);
-//добавляем стили
-
-document.body.style.cssText = `
-   background-color: aqua;
-`;
-var elems = document.getElementsByTagName('img');
-for (var i = 0; i < elems.length; i++) {
-    elems[i].style.width = '500px';
-    elems[i].style.height = '300px';
-
-};
-
+const galleryRefItem = ({ url, alt }) =>
+  `<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
+const galleryMarkup = images.reduce(
+  (acc, item) => acc + galleryRefItem (item),
+  ""
+);
+const galleryList = document.querySelector("#gallery");
+galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
+galleryList.setAttribute("style", "list-style-type:none; display: flex; background : aqua; margin-left : 20px;");
