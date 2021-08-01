@@ -16,12 +16,18 @@ const images = [
     },
 ];
 
-const galleryRefItem = ({ url, alt }) =>
-  `<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
-const galleryMarkup = images.reduce(
-  (acc, item) => acc + galleryRefItem (item),
-  ""
-);
-const galleryList = document.querySelector("#gallery");
-galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
-galleryList.setAttribute("style", "list-style-type:none; display: flex; background : aqua; margin-left : 20px;");
+const newGallery = document.querySelector("ul#gallery");
+
+let newImages;
+
+const imgArray = images.forEach((image) => {
+  if (newImages == undefined) {
+    return (newImages = `<li class="list-style"><img class="image-style" src="${image.url} 
+        alt="${image.alt}" width='310' height='210'></img></li>`);
+  } else {
+    return (newImages += `<li class="list-style"><img class="image-style" src="${image.url}
+         alt="${image.alt}" width='310' height='210'></img></li>`);
+  }
+});
+
+newGallery.insertAdjacentHTML("beforeend", newImages);

@@ -6,10 +6,10 @@ const ingredients = [
     'Зелень',
     'Приправы',
 ];
-const liRef = document.querySelector("ul#ingredients");
-const items = ingredients.map(ingredient => {
+const refParentEl = document.querySelector("ul#ingredients");
+const liItemsArray = ingredients.map(c => {
     const newLiRef = document.createElement('li');
-    newLiRef.textContent = ingredient;
+    newLiRef.textContent = c;
     return newLiRef;
 })
-liRef.append(...items);
+refParentEl.append(...liItemsArray );

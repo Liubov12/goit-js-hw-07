@@ -8,10 +8,9 @@ btnDecrementRef.addEventListener('click', decrement);
 let counterValue = 0;
 
 function increment(event) {
-    counterValue += 1;
-    displayCounterValueRef.textContent = counterValue;
+    displayCounterValueRef.textContent = ++counterValue;
 };
 function decrement(event) {
-    counterValue -= 1;
-    displayCounterValueRef.textContent = counterValue;
+    
+    displayCounterValueRef.textContent = --counterValue;
 };
